@@ -9,7 +9,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tagger'
+gem 'tagger', :git => 'git@github.com:bhanubhakta/tagger.git'
 ```
 
 And then execute:
