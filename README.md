@@ -190,7 +190,24 @@ DELETE /tagger/api/v1/dogs/:id
 ```
 GET /tagger/api/v1/dogs/:id/tags
 
-- Gets tags on a breed
+- Gets tags on a dog
+
+response: {
+  "tags": [
+    {
+        "id": 4,
+        "name": "Barks hard",
+        "created_at": "2017-09-16T06:44:27.260Z",
+        "updated_at": "2017-09-16T06:44:27.260Z"
+    },
+    {
+        "id": 5,
+        "name": "Climbs Trees",
+        "created_at": "2017-09-16T06:44:27.318Z",
+        "updated_at": "2017-09-16T06:44:27.318Z"
+    }
+  ]
+}
 
 POST /tagger/api/v1/breeds/:id/tags
 

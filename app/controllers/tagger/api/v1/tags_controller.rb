@@ -72,7 +72,7 @@ module Tagger
         def replace_tag
           begin
             entity = Tagger::EntityTag.create_entity_tags(params)
-            render json: { entity: entity, tags: entity.tags }, status: 201
+            render json: { "#{Tagger.tagged_resource}": entity, tags: entity.tags }, status: 201
           rescue Exception => e
             render json: { error: "Unprocessable entity" }, status: 422
           end
