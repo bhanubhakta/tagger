@@ -344,7 +344,7 @@ GET /tagger/api/v1/tags/stats
 response:
 
 tags: 
-{
+[{
   "id": 6,
   "name": "low shedding",
   "entity_count": 1,
@@ -359,7 +359,7 @@ tags:
   "entity_ids": [
       2
   ]
-}
+}]
 ```
   
 ## License
