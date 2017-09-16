@@ -20,9 +20,14 @@ Tagger::Engine.routes.draw do
         get "#{Tagger.tagged_resource}/" => "breeds#index"
         get "#{Tagger.tagged_resource}/stats" => "breeds#stats"
         get "#{Tagger.tagged_resource}/:id" => "breeds#show"
+        get "#{Tagger.tagged_resource}/:id/tags" => 'breeds#tags'
+
         post "#{Tagger.tagged_resource}/" => "breeds#create"
+        post "#{Tagger.tagged_resource}/:id/tags" => 'tags#replace_tag'
+
         match "#{Tagger.tagged_resource}/:id" => "breeds#update",
           via: [:put, :patch]
+          
         delete "#{Tagger.tagged_resource}/:id" => "breeds#destroy"
       end
     end
