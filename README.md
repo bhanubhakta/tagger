@@ -54,16 +54,36 @@ How to intergate with rails app:
           mount_tagger
         end
       ```
-Limitations:
+##### Limitations:
   1. We have to manually update the tagged_klass in environment files.
   2. Selection of where to mount the routes is not there.
   3. API credentials are not being used. This has to be integrated.
   4. Haven’t performed security and vulnerability tests.
 
-Future enhancements:
+##### Future enhancements:
   1. Have initializers for not updating the configs manually.
   2. Make mounting of routes configureable.
   3. Have verbose error response for API.
+
+##### DEMO
+The following rails app is an example of how to integrate
+'tagger' into the app. The app has a model called 'Dog' which 'acts_as_taggable'.
+
+Github link:
+
+https://github.com/bhanubhakta/unicorn
+
+The following is the 'unicorn' app hosted in heroku for demo. All the endpoints from 'Available APIs' section can be accessed.
+
+https://vast-stream-64886.herokuapp.com/tagger/api/v1/dogs
+
+##### Explanation for route structure
+
+I have used the ‘api/:version/:resource’ url format for the API to be used as:
+
+1. It gives us plenty of room to work on future versions while still maintaining the older versions.
+2. We could have a normal website running in the base url, using this layout helps seem less integration of different services but using the same base url/hostname.
+3. Testing will be easier.
 
 ##### Available APIs
 

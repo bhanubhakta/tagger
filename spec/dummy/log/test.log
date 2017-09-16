@@ -3752,3 +3752,214 @@ Processing by Tagger::Api::V1::TagsController#update as HTML
 Completed 201 Created in 24ms (Views: 3.4ms | ActiveRecord: 0.9ms)
   [1m[36mTagger::Tag Load (0.2ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test breed"], ["created_at", "2017-09-16 07:11:58.640571"], ["updated_at", "2017-09-16 07:11:58.640571"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::BreedsController#index as HTML
+  [1m[36mTagger::Entity Load (0.2ms)[0m  [1m[34mSELECT "tagger_entities".* FROM "tagger_entities"[0m
+  [1m[36mTagger::EntitiesTag Load (5.9ms)[0m  [1m[34mSELECT "tagger_entities_tags".* FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."taggable_type" = ? AND "tagger_entities_tags"."taggable_id" = 1[0m  [["taggable_type", "Tagger::Entity"]]
+Completed 200 OK in 93ms (Views: 85.3ms | ActiveRecord: 6.4ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test breed"], ["created_at", "2017-09-16 07:11:58.797872"], ["updated_at", "2017-09-16 07:11:58.797872"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::BreedsController#index as HTML
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT "tagger_entities".* FROM "tagger_entities"[0m
+  [1m[36mTagger::EntitiesTag Load (0.1ms)[0m  [1m[34mSELECT "tagger_entities_tags".* FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."taggable_type" = ? AND "tagger_entities_tags"."taggable_id" = 1[0m  [["taggable_type", "Tagger::Entity"]]
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+Processing by Tagger::Api::V1::BreedsController#create as HTML
+  Parameters: {"name"=>"Testing"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:58.987657"], ["updated_at", "2017-09-16 07:11:58.987657"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (24.9ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+Completed 201 Created in 164ms (Views: 78.0ms | ActiveRecord: 26.3ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Tagger::Api::V1::BreedsController#create as HTML
+  Parameters: {"name"=>"Testing"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.143502"], ["updated_at", "2017-09-16 07:11:59.143502"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+Completed 201 Created in 38ms (Views: 32.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tagger_entities"[0m
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Tagger::Api::V1::BreedsController#create as HTML
+  Parameters: {"name"=>"Testing"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.252885"], ["updated_at", "2017-09-16 07:11:59.252885"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.6ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+Completed 201 Created in 31ms (Views: 6.7ms | ActiveRecord: 1.6ms)
+  [1m[36mTagger::Entity Load (0.7ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (6.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.291996"], ["updated_at", "2017-09-16 07:11:59.291996"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::BreedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTagger::Entity Load (0.2ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagger::Tag Load (0.3ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.340656"], ["updated_at", "2017-09-16 07:11:59.340656"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::BreedsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.356298"], ["updated_at", "2017-09-16 07:11:59.356298"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::BreedsController#show as HTML
+  Parameters: {"id"=>"123"}
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+Completed 422 Unprocessable Entity in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.367717"], ["updated_at", "2017-09-16 07:11:59.367717"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.4ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::BreedsController#update as HTML
+  Parameters: {"name"=>"Updated Testing", "tags"=>"[\"My tag\"]", "id"=>"1"}
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "tagger_entities" SET "name" = ?, "updated_at" = ? WHERE "tagger_entities"."id" = ?[0m  [["name", "Updated Testing"], ["updated_at", "2017-09-16 07:11:59.379604"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.3ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ? AND 1=0[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[36mTagger::Tag Load (1.4ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "My tag"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "My tag"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "My tag"], ["created_at", "2017-09-16 07:11:59.477787"], ["updated_at", "2017-09-16 07:11:59.477787"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagger::EntitiesTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."tag_id" = ? AND "tagger_entities_tags"."taggable_id" = ? LIMIT ?[0m  [["tag_id", 1], ["taggable_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.4ms)[0m  [1m[32mINSERT INTO "tagger_entities_tags" ("tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?)[0m  [["tag_id", 1], ["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 250ms (Views: 16.1ms | ActiveRecord: 10.2ms)
+  [1m[35m (3.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:11:59.676283"], ["updated_at", "2017-09-16 07:11:59.676283"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.2ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::BreedsController#update as HTML
+  Parameters: {"name"=>"Updated Testing", "tags"=>"[\"My tag\"]", "id"=>"1"}
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "tagger_entities" SET "name" = ?, "updated_at" = ? WHERE "tagger_entities"."id" = ?[0m  [["name", "Updated Testing"], ["updated_at", "2017-09-16 07:11:59.686330"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ? AND 1=0[0m  [["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[36mTagger::Tag Load (0.6ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "My tag"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (7.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "My tag"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "My tag"], ["created_at", "2017-09-16 07:11:59.714213"], ["updated_at", "2017-09-16 07:11:59.714213"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTagger::EntitiesTag Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."tag_id" = ? AND "tagger_entities_tags"."taggable_id" = ? LIMIT ?[0m  [["tag_id", 1], ["taggable_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "tagger_entities_tags" ("tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?)[0m  [["tag_id", 1], ["taggable_id", 1], ["taggable_type", "Tagger::Entity"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 94ms (Views: 0.9ms | ActiveRecord: 11.7ms)
+  [1m[36mTagger::Entity Load (0.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" ORDER BY "tagger_entities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Test tag"], ["LIMIT", 1]]
+  [1m[35mSQL (4.3ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test tag"], ["created_at", "2017-09-16 07:11:59.845882"], ["updated_at", "2017-09-16 07:11:59.845882"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::TagsController#index as HTML
+  [1m[36mTagger::Tag Load (0.2ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Test tag"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test tag"], ["created_at", "2017-09-16 07:12:00.017527"], ["updated_at", "2017-09-16 07:12:00.017527"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::TagsController#index as HTML
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Testing"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:12:00.140696"], ["updated_at", "2017-09-16 07:12:00.140696"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.2ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::TagsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTagger::Tag Load (0.3ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Testing"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:12:00.165284"], ["updated_at", "2017-09-16 07:12:00.165284"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::TagsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTagger::Tag Load (0.3ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Testing"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:12:00.208288"], ["updated_at", "2017-09-16 07:12:00.208288"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Tagger::Api::V1::TagsController#show as HTML
+  Parameters: {"id"=>"123"}
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."id" = ? LIMIT ?[0m  [["id", 123], ["LIMIT", 1]]
+Completed 422 Unprocessable Entity in 47ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (4.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (16.6ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Testing"], ["LIMIT", 1]]
+  [1m[35mSQL (27.2ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:12:00.334687"], ["updated_at", "2017-09-16 07:12:00.334687"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.2ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::TagsController#update as HTML
+  Parameters: {"name"=>"Updated Testing", "id"=>"1"}
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (51.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? AND ("tagger_tags"."id" != ?) LIMIT ?[0m  [["name", "Updated Testing"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "tagger_tags" SET "name" = ?, "updated_at" = ? WHERE "tagger_tags"."id" = ?[0m  [["name", "Updated Testing"], ["updated_at", "2017-09-16 07:12:00.512981"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 77ms (Views: 1.5ms | ActiveRecord: 52.7ms)
+  [1m[35m (7.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "Testing"], ["LIMIT", 1]]
+  [1m[35mSQL (16.0ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Testing"], ["created_at", "2017-09-16 07:12:00.550223"], ["updated_at", "2017-09-16 07:12:00.550223"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by Tagger::Api::V1::TagsController#update as HTML
+  Parameters: {"name"=>"Updated Testing", "id"=>"1"}
+  [1m[36mTagger::Tag Load (0.1ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTagger::Tag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? AND ("tagger_tags"."id" != ?) LIMIT ?[0m  [["name", "Updated Testing"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "tagger_tags" SET "name" = ?, "updated_at" = ? WHERE "tagger_tags"."id" = ?[0m  [["name", "Updated Testing"], ["updated_at", "2017-09-16 07:12:00.608205"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 14ms (Views: 1.8ms | ActiveRecord: 0.9ms)
+  [1m[36mTagger::Tag Load (1.0ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" ORDER BY "tagger_tags"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
