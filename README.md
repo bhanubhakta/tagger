@@ -97,7 +97,7 @@ POST /tagger/api/v1/dogs
     name: The name of the breed.
     tags: An array of tags to be tagged.
     params = {
-      name: 'Norwegian Forest Cat',
+      name: 'German Sheperd',
       tags: ["Knows Kung Fu", "Climbs Trees"]
     }
 
