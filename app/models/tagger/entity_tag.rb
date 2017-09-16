@@ -1,24 +1,23 @@
 module Tagger
   class EntityTag
     def self.create_entity_tags(params)
-      tags = []
-      tag_params = []
-      tag_params << JSON.parse(params[:tags]) if params[:tags].present?
       if params[:id].present?
         entity = Tagger.tagged_klass.constantize.find(params[:id])
-        entity.update({name: params[:name]})
-        entity.tags.delete_all
+        entity.update_attributes({ name: params[:name] || entity.name })
       else
         entity = Tagger.tagged_klass.constantize.create({ name: params[:name] })
       end
-      tag_params.flatten.each do |tag|
-        tag = Tagger::Tag.create({ name: tag })
-        entity_key = tag.send(Tagger.association).present? || Tagger.association
-        tag.update({"#{entity_key}": [entity]})
-        tags << tag
+
+      if params[:tags]
+        entity.tags.delete_all
+        tag_params = JSON.parse(params[:tags])
+        tags = []
+        tag_params.flatten.each do |tag|
+          tags << Tagger::Tag.find_or_create_by({ name: tag })
+        end
+        entity.update_attributes({ tags: tags })
       end
-      entity.update({ tags: tags })
-      [entity, tags]
+      entity
     end
   end
 end
