@@ -28,12 +28,11 @@ How to intergate with rails app:
   1. Add ```acts_as_taggable``` in the model you want to tag
 
     Example
-    
-    ```
+
       class Dog < ActiveRecord::Base
         acts_as_taggable
       end
-    ```
+      
   2. Update all environment files with: Tagger.set_tagged_klass('<class_
   name_of_the_taggable_model>')
     Example development.rb
