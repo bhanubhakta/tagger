@@ -1,6 +1,6 @@
 Tagger application
 # Tagger
-Short description and motivation.
+Building a Folksonomy of Cats.
 
 ## Usage
 How to use my plugin.
