@@ -84,6 +84,15 @@ module Tagger
           end
         end
 
+        def tags
+          begin
+            breed = Tagger.tagged_klass.constantize.find(params[:id])
+            render json: { tags: breed.tags }
+          rescue Exception => e
+            render json: { error: "Unprocessable entity" }, status: 422
+          end
+        end
+
         # Public: Updates the entity.
         #
         # /tagger/api/v1/breeds/:breed_id

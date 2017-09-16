@@ -14,6 +14,7 @@ Tagger::Engine.routes.draw do
       end
       
       post '/breeds/:id/tags' => 'tags#replace_tag'
+      get '/breeds/:id/tags' => 'breeds#tags'
       
       if Tagger.tagged_resource.present?
         get "#{Tagger.tagged_resource}/" => "breeds#index"

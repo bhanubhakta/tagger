@@ -65,36 +65,130 @@ Future enhancements:
 
 ##### Available APIs
 
+For the taggable class, we can either use the class's name or
+'breed'. Example: For Dog model we can use '/tagger/api/v1/dogs' or '/tagger/api/v1/breeds'. Both will return the same results.
+
 ```
-POST /tagger/api/v1/breeds
+POST /tagger/api/v1/dogs
 
-- Breed Name, e.g. 'Norwegian Forest Cat'
-- Tags, e.g. ['Knows Kung Fu', 'Climbs Trees']
+  input:
+    name: The name of the breed.
+    tags: An array of tags to be tagged.
+    params = {
+      name: 'Norwegian Forest Cat',
+      tags: ["Knows Kung Fu", "Climbs Trees"]
+    }
 
-GET /tagger/api/v1/breeds
+  response:
 
-- retuns all breeds
+  {
+    "dogs": {
+        "id": 1,
+        "name": "German Sheperd",
+        "created_at": "2017-09-16T06:07:53.800Z",
+        "updated_at": "2017-09-16T06:07:53.800Z"
+    },
+    "tags": [
+        {
+            "id": 1,
+            "name": "Knows Kung Fu",
+            "created_at": "2017-09-16T06:07:53.843Z",
+            "updated_at": "2017-09-16T06:07:53.843Z"
+        },
+        {
+            "id": 2,
+            "name": "Climbs Trees",
+            "created_at": "2017-09-16T06:07:53.852Z",
+            "updated_at": "2017-09-16T06:07:53.852Z"
+        }
+    ]
+  }
 
-GET /tagger/api/v1/breeds/:breed_id
+GET /tagger/api/v1/dogs
 
-- returns the breed and all the tags belonging to it
+- returns all dogs
 
-PATCH /tagger/api/v1/breeds/:breed_id
+response:
 
-- Updates the breed and it's tags (overwrite tags, don't merge)
-- Breed Name, e.g. 'Norwegian Forest Cat'
-- Tags, e.g. ['Knows Kung Fu', 'Climbs Trees']
+[
+  {
+      "id": 1,
+      "name": "German Sheperd",
+      "created_at": "2017-09-16T06:07:53.800Z",
+      "updated_at": "2017-09-16T06:07:53.800Z"
+  }
+]
 
-DELETE /tagger/api/v1/breeds/:breed_id
+GET /tagger/api/v1/dogs/:id
 
-- Removes the breed
-- When it comes to tags of deleted breeds, please work out a way to ensure there aren't orphaned tags left in the system that can't be deleted.
+- returns the dogs and all the tags belonging to it
+
+response: {
+  "dogs": {
+      "id": 1,
+      "name": "German Sheperd",
+      "created_at": "2017-09-16T06:07:53.800Z",
+      "updated_at": "2017-09-16T06:07:53.800Z"
+  },
+  "tags": [
+      {
+          "id": 1,
+          "name": "Knows Kung Fu",
+          "created_at": "2017-09-16T06:07:53.843Z",
+          "updated_at": "2017-09-16T06:07:53.843Z"
+      },
+      {
+          "id": 2,
+          "name": "Climbs Trees",
+          "created_at": "2017-09-16T06:07:53.852Z",
+          "updated_at": "2017-09-16T06:07:53.852Z"
+      }
+  ]
+}
+
+PATCH /tagger/api/v1/dogs/:id
+
+- Updates the dog and it's tags
+
+input:
+  name: German Sheperd
+  tags: ["Barks hard", "Climbs Trees"]
+
+response: {
+  "dogs": {
+      "id": 1,
+      "name": "German Sheperd",
+      "created_at": "2017-09-16T06:07:53.800Z",
+      "updated_at": "2017-09-16T06:30:04.083Z"
+  },
+  "tags": [
+      {
+          "id": 3,
+          "name": "Barks hard",
+          "created_at": "2017-09-16T06:30:04.101Z",
+          "updated_at": "2017-09-16T06:30:04.101Z"
+      },
+      {
+          "id": 2,
+          "name": "Climbs Trees",
+          "created_at": "2017-09-16T06:07:53.852Z",
+          "updated_at": "2017-09-16T06:07:53.852Z"
+      }
+  ]
+}
+
+DELETE /tagger/api/v1/dogs/:id
+
+- Removes the dog
+  response: 
+  { "message": "Deleted successfully" }
+
 ```
 
 ##### Tag CRUD
 
 ```
-GET /tagger/api/v1/breeds/:id/tags
+GET /tagger/api/v1/dogs/:id/tags
 
 - Gets tags on a breed
 
