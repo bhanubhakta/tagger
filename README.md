@@ -32,7 +32,7 @@ How to intergate with rails app:
       class Dog < ActiveRecord::Base
         acts_as_taggable
       end
-      
+
   2. Update all environment files with: Tagger.set_tagged_klass('<class_
   name_of_the_taggable_model>')
     Example development.rb
@@ -63,6 +63,7 @@ Limitations:
 Future enhancements:
   1. Have initializers for not updating the configs manually.
   2. Make mounting of routes configureable.
+  3. Have verbose error response for API.
 
 ##### Available APIs
 
