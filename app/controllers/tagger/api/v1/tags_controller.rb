@@ -56,7 +56,7 @@ module Tagger
           begin
             tag = Tagger::Tag.find(params[:id])
             tag.send(Tagger.association).delete_all
-            tag.delete
+            tag.destroy
             render json: { message: "Deleted successfully" }
           rescue Exception => e
             render json: { error: "Unprocessable entity" }, status: 422

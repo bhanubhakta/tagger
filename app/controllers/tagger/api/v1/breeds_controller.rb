@@ -108,7 +108,7 @@ module Tagger
         def destroy
           begin
             breed = Tagger.tagged_klass.constantize.find(params[:id])
-            breed.delete
+            breed.destroy
             render json: { message: "Deleted successfully" }
           rescue Exception => e
             render json: { error: "Unprocessable entity" }, status: 422

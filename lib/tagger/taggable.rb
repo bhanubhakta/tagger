@@ -4,7 +4,7 @@ module Tagger
     extend ActiveSupport::Concern
 
     def acts_as_taggable
-      has_many :entities_tags, as: :taggable, class_name: 'Tagger::EntitiesTag'
+      has_many :entities_tags, as: :taggable, dependent: :destroy, class_name: 'Tagger::EntitiesTag'
       has_many :tags, through: :entities_tags, class_name: 'Tagger::Tag'
       klass = ancestors.first
       Tagger.tagged_klass = klass.name
