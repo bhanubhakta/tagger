@@ -15,6 +15,9 @@ gem 'tagger', :git => 'git@github.com:bhanubhakta/tagger.git'
 And then execute:
 ```bash
 $ bundle
+$ bundle exec rake tagger:install:migrations
+$ bundle exec rake db:migrate
+$ 
 ```
 
 Or install it yourself as:
