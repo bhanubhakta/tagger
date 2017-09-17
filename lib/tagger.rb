@@ -16,6 +16,6 @@ module Tagger
 
   def self.set_tagged_klass(klass)
     klass.camelize.constantize
-    Tagger.tagged_resource = klass.pluralize
+    Tagger.tagged_resource = klass.split('::').last.downcase.pluralize
   end
 end

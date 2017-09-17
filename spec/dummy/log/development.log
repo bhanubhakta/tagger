@@ -4089,3 +4089,126 @@ Processing by Tagger::Api::V1::BreedsController#stats as */*
 Completed 200 OK in 1310ms (Views: 2.8ms | ActiveRecord: 65.1ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tagger_entities_tags_on_taggable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tagger_entities_tags_on_taggable_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tagger_entities_tags_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tagger_entities_tags_on_tag_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tagger_entities_tags_on_taggable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tagger_entities_tags_on_taggable_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tagger_entities_tags_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tagger_entities_tags_on_tag_id' AND type='index'
+[0m
+Started POST "/tagger/api/v1/entities/" for ::1 at 2017-09-17 13:20:27 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/tagger/api/v1/entities"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+rack (2.0.3) lib/rack/handler/webrick.rb:86:in `service'
+/Users/bhanubhaktasigdel/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/bhanubhaktasigdel/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/bhanubhaktasigdel/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+Started POST "/tagger/api/v1/breeds/" for ::1 at 2017-09-17 13:20:58 -0500
+Processing by Tagger::Api::V1::BreedsController#create as */*
+  Parameters: {"name"=>"Husky", "tags"=>"[\"dangerous\",\"loud\",\"medium\"]"}
+Completed 422 Unprocessable Entity in 17397ms (Views: 0.6ms)
+
+
+Started POST "/tagger/api/v1/breeds/" for ::1 at 2017-09-17 13:24:11 -0500
+Processing by Tagger::Api::V1::BreedsController#create as */*
+  Parameters: {"name"=>"Husky", "tags"=>"[\"dangerous\",\"loud\",\"medium\"]"}
+Completed 422 Unprocessable Entity in 7183ms (Views: 0.6ms)
+
+
+Started POST "/tagger/api/v1/breeds/" for ::1 at 2017-09-17 13:24:57 -0500
+Processing by Tagger::Api::V1::BreedsController#create as */*
+  Parameters: {"name"=>"Husky", "tags"=>"[\"dangerous\",\"loud\",\"medium\"]"}
+Completed 422 Unprocessable Entity in 53901ms (Views: 0.4ms)
+
+
+Started POST "/tagger/api/v1/breeds/" for ::1 at 2017-09-17 13:27:14 -0500
+Processing by Tagger::Api::V1::BreedsController#create as */*
+  Parameters: {"name"=>"Husky", "tags"=>"[\"dangerous\",\"loud\",\"medium\"]"}
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "tagger_entities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Husky"], ["created_at", "2017-09-17 18:27:21.476299"], ["updated_at", "2017-09-17 18:27:21.476299"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTagger::Tag Load (1.4ms)[0m  [1m[34mSELECT "tagger_tags".* FROM "tagger_tags" INNER JOIN "tagger_entities_tags" ON "tagger_tags"."id" = "tagger_entities_tags"."tag_id" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ?[0m  [["taggable_id", 13], ["taggable_type", "Tagger::Entity"]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."taggable_id" = ? AND "tagger_entities_tags"."taggable_type" = ? AND 1=0[0m  [["taggable_id", 13], ["taggable_type", "Tagger::Entity"]]
+  [1m[36mTagger::Tag Load (1.6ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "dangerous"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTagger::Tag Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "dangerous"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "dangerous"], ["created_at", "2017-09-17 18:27:21.813871"], ["updated_at", "2017-09-17 18:27:21.813871"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTagger::Tag Load (1.6ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "loud"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTagger::Tag Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "loud"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "loud"], ["created_at", "2017-09-17 18:27:21.889691"], ["updated_at", "2017-09-17 18:27:21.889691"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTagger::Tag Load (1.4ms)[0m  [1m[34mSELECT  "tagger_tags".* FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "medium"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTagger::Tag Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_tags" WHERE "tagger_tags"."name" = ? LIMIT ?[0m  [["name", "medium"], ["LIMIT", 1]]
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "tagger_tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "medium"], ["created_at", "2017-09-17 18:27:21.966389"], ["updated_at", "2017-09-17 18:27:21.966389"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTagger::Entity Load (1.6ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTagger::EntitiesTag Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."tag_id" = ? AND "tagger_entities_tags"."taggable_id" = ? LIMIT ?[0m  [["tag_id", 4], ["taggable_id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "tagger_entities_tags" ("tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?)[0m  [["tag_id", 4], ["taggable_id", 13], ["taggable_type", "Tagger::Entity"]]
+  [1m[36mTagger::Entity Load (1.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTagger::EntitiesTag Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."tag_id" = ? AND "tagger_entities_tags"."taggable_id" = ? LIMIT ?[0m  [["tag_id", 5], ["taggable_id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "tagger_entities_tags" ("tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?)[0m  [["tag_id", 5], ["taggable_id", 13], ["taggable_type", "Tagger::Entity"]]
+  [1m[36mTagger::Entity Load (1.1ms)[0m  [1m[34mSELECT  "tagger_entities".* FROM "tagger_entities" WHERE "tagger_entities"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTagger::EntitiesTag Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tagger_entities_tags" WHERE "tagger_entities_tags"."tag_id" = ? AND "tagger_entities_tags"."taggable_id" = ? LIMIT ?[0m  [["tag_id", 6], ["taggable_id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "tagger_entities_tags" ("tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?)[0m  [["tag_id", 6], ["taggable_id", 13], ["taggable_type", "Tagger::Entity"]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 9384ms (Views: 1.0ms | ActiveRecord: 77.1ms)
+
+

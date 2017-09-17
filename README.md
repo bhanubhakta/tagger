@@ -1,30 +1,34 @@
-Tagger application
 # Tagger
-Building a Folksonomy of Cats.
 
-## Usage
-How to use my plugin.
+Tagger is a flexible tagger solution for Rails application where any enitiy e.g cat, dog, etc. can be tagged. 
 
-## Installation
+It:
+
+Is Rack based.
+Is a complete MVC solution based on Rails engines.
+Allows you to tag a model.
+
+## Using tagger
+## Installation Steps
+
+Tagger is tested in rails 5.1.4. Ruby version ruby-2.3.1
+
 Add this line to your application's Gemfile:
 
 ```ruby
 gem 'tagger', :git => 'git@github.com:bhanubhakta/tagger.git'
 ```
 
-And then execute:
+Then run ```bundle install```
+
+Next, you need to run generator:
 ```bash
-$ bundle
-$ bundle exec rake tagger:install:migrations
-$ bundle exec rake db:migrate
-$ 
+  $ bundle exec rake tagger:install:migrations
+  $ bundle exec rake db:migrate
 ```
 
-Or install it yourself as:
-```bash 
-$ gem install tagger
-```
-How to intergate with rails app:
+Integrating with your rails app:
+
   1. Add ```acts_as_taggable``` in the model you want to tag
 
     Example
@@ -33,8 +37,12 @@ How to intergate with rails app:
         acts_as_taggable
       end
 
-  2. Update all environment files with: Tagger.set_tagged_klass('<class_
+  2. Update all environment files with: 
+
+  Tagger.set_tagged_klass('<class_
   name_of_the_taggable_model>')
+
+
     Example development.rb
       ```
         Rails.application.configure do
@@ -54,20 +62,21 @@ How to intergate with rails app:
           mount_tagger
         end
       ```
+
 ### Limitations:
   1. We have to manually update the tagged_klass in environment files.
-  2. Selection of where to mount the routes is not there.
-  3. API credentials are not being used. This has to be integrated.
+  2. Tagger can be used to tag a single model for now. This can be extended so that it can be used by multiple models in the same rails application.
+  3. API authentication is not being used. This layer needs to be added for security.
   4. Haven’t performed security and vulnerability tests.
 
 ### Future enhancements:
-  1. Have initializers for not updating the configs manually.
+  1. Have initializers instead of updating the configs manually.
   2. Make mounting of routes configureable.
   3. Have verbose error response for API.
 
 ### DEMO
 The following rails app is an example of how to integrate
-'tagger' into the app. The app has a model called 'Dog' which 'acts_as_taggable'.
+'tagger' into the app. The app has a model called 'Dog' which 'acts_as_taggable'. The rails app version is 5.1.4.
 
 Github link:
 
