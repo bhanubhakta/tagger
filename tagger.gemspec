@@ -5,7 +5,7 @@ require "tagger/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "tagger-api"
+  s.name        = "tagger"
   s.version     = Tagger::VERSION
   s.authors     = ["Bhanu Bhakta Sigdel"]
   s.email       = ["bsbhanu169@gmail.com"]
