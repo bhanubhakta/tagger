@@ -46,24 +46,25 @@ Integrating with your rails app:
 
 
     Example development.rb
-      ```
+
         Rails.application.configure do
 
           ...
 
           Tagger.set_tagged_klass('Dog')
         end
-      ```
+
   3. Mount routes using ```mount_tagger``` in routes.rb
+
     Example route.rb
-      ```
+
         Rails.application.routes.draw do
 
           ...
 
           mount_tagger
         end
-      ```
+        
 
 ### Limitations:
   1. We have to manually update the tagged_klass in environment files.
