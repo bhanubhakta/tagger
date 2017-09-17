@@ -2,7 +2,7 @@
 
 Tagger is a flexible tagger solution for Rails application where any enitiy e.g cat, dog, etc. can be tagged. 
 
-#####It:
+## It:
 
 Is Rack based.
 
